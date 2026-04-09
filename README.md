@@ -2,21 +2,39 @@
 
 Ce projet démontre le déploiement complet d'une application Node.js sur un cluster Kubernetes, intégrant la scalabilité, la persistance des données et la gestion de la configuration.
 
-##  Fonctionnalités
+## 🚀 Fonctionnalités
 - **Orchestration** : Gestion des Pods via un `Deployment`.
 - **Configuration** : Utilisation de `ConfigMaps` et `Secrets`.
 - **Stockage** : Persistance des données via `PV` et `PVC`.
 - **Exposition** : Accès externe via `Service` et `Ingress`.
 - **Autoscaling** : Mise à l'échelle automatique avec le `HPA`.
 
-##  Architecture du Projet
+## 🛠️ Architecture du Projet
 L'architecture suit les principes du Cloud Native :
 1. **Containerisation** : Docker (Image : `devlyly/node-app:v1`)
 2. **Cluster K8s** : [Minikube / EKS / GKE]
 3. **Monitoring** : kubectl top & logs
 
-## Étapes du Déploiement
+## 📋 Étapes du Déploiement
 
-### 1. Déploiement de l'Application
+### 1. Création et Containerisation de l'Application
+Avant le déploiement, l'application a été développée et empaquetée :
+1. **Développement** : API simple avec **Node.js** et **Express**.
+2. **Dockerisation** : Création d'un `Dockerfile` basé sur `node:18-slim`.
+3. **Publication** : Image poussée sur Docker Hub.
+
+```bash
+# Build et Push de l'image
+docker build -t devlyly/node-app:v1 .
+docker push devlyly/node-app:v1
+```
+![Capture d'écran du build](images/imagebuild.png)
+![Capture d'écran du push](images/imagepush.png)
+
+### 2. Déploiement de l'Application sur Kubernetes
+Le Deployment gère les répliques de l'application et assure sa disponibilité.
+
 ```bash
 kubectl apply -f deployment.yaml
+```
+![Capture d'écran du déploiement](images/deployment.png)
