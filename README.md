@@ -38,3 +38,20 @@ Le Deployment gère les répliques de l'application et assure sa disponibilité.
 kubectl apply -f deployment.yaml
 ```
 ![Capture d'écran du déploiement](images/deployment.png)
+
+### 3. Gestion de la Configuration (ConfigMaps & Secrets)
+L'application utilise des objets Kubernetes pour gérer les paramètres sans modifier l'image Docker.
+
+- **ConfigMap** : Stocke le message d'accueil.
+- **Secret** : Stocke les identifiants de connexion (encodés en Base64).
+
+**Commande :**
+```bash
+kubectl apply -f config.yaml
+# Mise à jour du déploiement pour injecter les variables
+kubectl apply -f deployment.yaml
+
+![Capture d'écran](images/configfile.png)
+![Capture d'écran](images/configmapupdate.png)
+
+
