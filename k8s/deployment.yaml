@@ -19,6 +19,17 @@ spec:
         image: devlyly/node-app:v1
         ports:
         - containerPort: 3000
+        env:
+        - name: APP_MESSAGE
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: APP_MESSAGE
+        - name: DATABASE_USER
+          valueFrom:
+            secretKeyRef:
+              name: app-secret
+              key: DATABASE_USER
         resources:
           requests:
             cpu: "100m"

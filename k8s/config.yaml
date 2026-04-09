@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  APP_MESSAGE: "Salut ! Ce message vient du ConfigMap."
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: app-secret
+type: Opaque
+data:
+  DATABASE_USER: YWRtaW4tdXNlcg==
