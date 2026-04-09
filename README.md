@@ -50,7 +50,7 @@ L'application utilise des objets Kubernetes pour gérer les paramètres sans mod
 kubectl apply -f config.yaml
 # Mise à jour du déploiement pour injecter les variables
 kubectl apply -f deployment.yaml
-
+```
 ![Capture d'écran](images/configfile.png)
 ![Capture d'écran](images/configmapupdate.png)
 
