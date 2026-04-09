@@ -54,4 +54,18 @@ kubectl apply -f deployment.yaml
 ![Capture d'écran](images/configfile.png)
 ![Capture d'écran](images/configmapupdate.png)
 
+### 4. Exposition de l'Application (Service & Ingress)
+Pour rendre l'application accessible, nous avons configuré deux couches réseau :
+
+- **Service (ClusterIP)** : Crée une interface réseau interne stable pour les Pods.
+- **Ingress** : Gère les routes HTTP et expose l'application au monde extérieur.
+
+**Commandes :**
+```bash
+kubectl apply -f service.yaml
+kubectl apply -f ingress.yaml
+```
+![Capture d'écran](images/network.png)
+
+
 
