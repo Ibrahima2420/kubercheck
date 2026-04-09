@@ -37,3 +37,10 @@ spec:
           limits:
             cpu: "200m"
             memory: "256Mi"
+        volumeMounts:
+        - name: storage-volume
+          mountPath: /data
+      volumes:
+      - name: storage-volume
+        persistentVolumeClaim:
+          claimName: node-app-pvc
